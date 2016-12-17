@@ -30,7 +30,7 @@ TARGET_SYSTEMIMAGES_USE_EXT4 := true
 INITRD_COMPRESSOR := lz4
 
 TARGET_KERNEL_CONFIG := android-cube_i7_defconfig
-BOARD_GPU_DRIVERS := 915
+BOARD_GPU_DRIVERS := i915
 TARGET_HARDWARE_3D := true
 BOARD_EGL_CFG := device/generic/common/gpu/egl_mesa.cfg
 

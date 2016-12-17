@@ -24,9 +24,9 @@ $(call inherit-product,device/generic/common/x86_64.mk)
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
 # Overrides
-PRODUCT_NAME := cm_android_cube_i7
+PRODUCT_NAME := cm_i7
 PRODUCT_BRAND := Android-x86
-PRODUCT_DEVICE := android_cube_i7
+PRODUCT_DEVICE := i7
 PRODUCT_MODEL := Cube i7 Android-x86_64
 PRODUCT_CHARACTERISTICS := tablet
 PRODUCT_LOCALES += en_GB
