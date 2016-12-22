@@ -14,9 +14,6 @@
 # limitations under the License.
 #
 
-
-$(call inherit-product,$(SRC_TARGET_DIR)/product/core_64_bit.mk)
-
 # includes the base of Android-x86 platform
 $(call inherit-product,device/generic/common/x86_64.mk)
 
@@ -32,7 +29,16 @@ PRODUCT_CHARACTERISTICS := tablet
 PRODUCT_LOCALES += en_GB
 PRODUCT_MANUFACTURER := cube
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.radio.noril=1 \
-    ro.dalvik.vm.isa.arm64=x86_64 \
-	ro.enable.native.bridge.exec64=1
+GAPPS_VARIANT := super
+GAPPS_EXCLUDED_PACKAGES := \
+	FaceLock \
+	GoogleZhuyinIME \
+	GooglePinyinIME \
+	KoreanIME \
+	GoogleJapaneseInput \
+	GoogleHindiIME \
+	GoogleCamera \
+	GoogleVrCore \
+	Street
+	
+$(call inherit-product, vendor/google/build/opengapps-packages.mk)
