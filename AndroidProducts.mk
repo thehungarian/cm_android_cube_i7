@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/android_cube_i7.mk
+    $(LOCAL_DIR)/cube_i7.mk
