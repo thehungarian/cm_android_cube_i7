@@ -15,22 +15,25 @@
 #
 
 
-$(call inherit-product,$(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 # includes the base of Android-x86 platform
-$(call inherit-product,device/generic/common/x86_64.mk)
+$(call inherit-product, device/generic/x86_64/mini_x86_64.mk)
+
+# Inherit some common Lineage stuff.
+$(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
 # Overrides
-PRODUCT_NAME := cm_android_cube_i7
-PRODUCT_BRAND := Android-x86
-PRODUCT_DEVICE := android_cube_i7
-PRODUCT_MODEL := Cube i7 Android-x86_64
+PRODUCT_NAME := lineage_cubei7
+PRODUCT_BRAND := LineageOS
+PRODUCT_DEVICE := cubei7
+PRODUCT_MODEL := Cube i7 Android
 PRODUCT_CHARACTERISTICS := tablet
 PRODUCT_LOCALES += en_GB
-PRODUCT_MANUFACTURER := cube
+PRODUCT_MANUFACTURER := Cube
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.radio.noril=1 \
