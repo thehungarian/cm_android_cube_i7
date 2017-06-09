@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="private"
+           fetch="ssh://git@github.com" />
+
+  <project name="thehungarian/cm_android_cube_i7" path="device/cube/cubei7" remote="private" revision="refs/heads/nougat-x86" />
+
+</manifest>
