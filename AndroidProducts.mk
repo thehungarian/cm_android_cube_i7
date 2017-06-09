@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+LOCAL_PATH := $(call my-dir)
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/cube_i7.mk
+    $(LOCAL_DIR)/android_cubei7.mk

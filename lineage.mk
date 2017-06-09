@@ -15,6 +15,7 @@
 #
 
 
+LOCAL_PATH := $(call my-dir)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 # includes the base of Android-x86 platform

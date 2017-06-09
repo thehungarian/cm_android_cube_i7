@@ -14,12 +14,25 @@
 # limitations under the License.
 #
 
-# This file is executed by build/envsetup.sh, and can use anything
-# defined in envsetup.sh.
-#
-# In particular, you can add lunch options with the add_lunch_combo
-# function: add_lunch_combo generic-eng
 
-add_lunch_combo android_cubei7-user
-add_lunch_combo android_cubei7-userdebug
-add_lunch_combo android_cubei7-eng
+LOCAL_PATH := $(call my-dir)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+
+# includes the base of Android-x86 platform
+$(call inherit-product, device/generic/x86_64/android_x86_64.mk)
+
+# Overlays
+DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
+
+# Overrides
+PRODUCT_NAME := android_cubei7
+PRODUCT_DEVICE := cubei7
+PRODUCT_MODEL := Cube i7 Android
+PRODUCT_CHARACTERISTICS := tablet
+PRODUCT_LOCALES += en_GB
+PRODUCT_MANUFACTURER := Cube
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.radio.noril=1 \
+    ro.dalvik.vm.isa.arm64=x86_64 \
+	ro.enable.native.bridge.exec64=1
