@@ -3,6 +3,9 @@ This board configuration is a customisation of the Android x86 build specificall
 It should work with other devices based on the intel mobile broadcom chip.
 The device can run ubuntu which is where information was gathered about the hardware.
 
+# Build
+. build/envsetup.sh && lunch android_cubei7-userdebug && make -s -j6 iso_img
+
 # Changes
 
 - customised kernel for specific hardware and removal of unused modules

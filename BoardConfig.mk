@@ -41,7 +41,7 @@ TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
 TARGET_SYSTEMIMAGES_USE_EXT4 := true
 
 # use a different compression for initrd
-INITRD_COMPRESSOR := lz4
+#INITRD_COMPRESSOR := lz4
 
 LOCAL_PATH := $(call my-dir)
 
@@ -53,14 +53,16 @@ TARGET_KERNEL_CONFIG := android-cube_i7_defconfig
 .PHONY: ${TARGET_KERNEL_SOURCE}/arch/x86/configs/${TARGET_KERNEL_CONFIG}
 ${TARGET_KERNEL_SOURCE}/arch/x86/configs/${TARGET_KERNEL_CONFIG} : 
 	${TARGET_KERNEL_SOURCE}/scripts/kconfig/merge_config.sh -m -n \
+		kernel/arch/x86/configs/android-x86_64_defconfig \
 		device/cube/cubei7/${TARGET_KERNEL_CONFIG} \
-		${TARGET_KERNEL_SOURCE}/kernel/configs/android-base.config \
-		${TARGET_KERNEL_SOURCE}/kernel/configs/android-recommended.config && \
+#		${TARGET_KERNEL_SOURCE}/kernel/configs/android-base.config \
+#		${TARGET_KERNEL_SOURCE}/kernel/configs/android-recommended.config \
+	&& \
 	cp .config ${TARGET_KERNEL_SOURCE}/arch/x86/configs/${TARGET_KERNEL_CONFIG}
 
-BOARD_GPU_DRIVERS := i915 i965
+BOARD_GPU_DRIVERS := i965 gallium
 TARGET_HARDWARE_3D := true
 #BOARD_EGL_CFG := device/generic/common/gpu/egl_mesa.cfg
-BOARD_KERNEL_CMDLINE := root=/dev/ram0 quiet i915.powersave=1 usbcore.autosuspend=2
+BOARD_KERNEL_CMDLINE := root=/dev/ram0 quiet usbcore.autosuspend=2
 
 include device/generic/x86_64/BoardConfig.mk

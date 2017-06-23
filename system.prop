@@ -1,7 +1,7 @@
-        set_property poweroff.doubleclick 0
-        # ?
-        set_property ro.ignore_atkbd 1
-        # Flip the axis of the aacelleromitter
-        set_property hal.sensors.iio.accel 1
-        set_property hal.sensors.iio.accel.matrix -1,0,0,0,-1,0,0,0,-1
-
+poweroff.doubleclick=0
+# ?
+ro.ignore_atkbd=1
+# Flip the axis of the aacelleromitter
+hal.sensors.iio.accel=1
+hal.sensors.iio.accel.matrix=-1,0,0,0,-1,0,0,0,-1
+ro.com.android.dateformat=dd-MM-yyyy
