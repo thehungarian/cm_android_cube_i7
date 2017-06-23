@@ -60,9 +60,9 @@ ${TARGET_KERNEL_SOURCE}/arch/x86/configs/${TARGET_KERNEL_CONFIG} :
 	&& \
 	cp .config ${TARGET_KERNEL_SOURCE}/arch/x86/configs/${TARGET_KERNEL_CONFIG}
 
-BOARD_GPU_DRIVERS := i965 gallium
+BOARD_GPU_DRIVERS := i965 i915g i915 gallium
 TARGET_HARDWARE_3D := true
 #BOARD_EGL_CFG := device/generic/common/gpu/egl_mesa.cfg
-BOARD_KERNEL_CMDLINE := root=/dev/ram0 quiet usbcore.autosuspend=2
+BOARD_KERNEL_CMDLINE := root=/dev/ram0 quiet usbcore.autosuspend=2 androidboot.selinux=permissive
 
 include device/generic/x86_64/BoardConfig.mk
