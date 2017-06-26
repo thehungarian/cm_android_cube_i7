@@ -54,10 +54,7 @@ TARGET_KERNEL_CONFIG := android-cube_i7_defconfig
 ${TARGET_KERNEL_SOURCE}/arch/x86/configs/${TARGET_KERNEL_CONFIG} : 
 	${TARGET_KERNEL_SOURCE}/scripts/kconfig/merge_config.sh -m -n \
 		kernel/arch/x86/configs/android-x86_64_defconfig \
-		device/cube/cubei7/${TARGET_KERNEL_CONFIG} \
-#		${TARGET_KERNEL_SOURCE}/kernel/configs/android-base.config \
-#		${TARGET_KERNEL_SOURCE}/kernel/configs/android-recommended.config \
-	&& \
+		device/cube/cubei7/${TARGET_KERNEL_CONFIG} && \
 	cp .config ${TARGET_KERNEL_SOURCE}/arch/x86/configs/${TARGET_KERNEL_CONFIG}
 
 BOARD_GPU_DRIVERS := i965 i915g i915 gallium

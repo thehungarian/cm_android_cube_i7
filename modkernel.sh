@@ -1,9 +1,14 @@
 #!/bin/bash
 pushd ${ANDROID_BUILD_TOP}
 
-. ./build/envsetup.sh
-lunch android_cubei7-userdebug && \
-make -C kernel O=$OUT/obj/kernel ARCH=x86 xconfig
+TARGET_KERNEL_SOURCE=kernel
+TARGET_KERNEL_CONFIG=android-cube_i7_defconfig
+
+${TARGET_KERNEL_SOURCE}/scripts/kconfig/merge_config.sh -m -n \
+                kernel/arch/x86/configs/android-x86_64_defconfig \
+                device/cube/cubei7/${TARGET_KERNEL_CONFIG} 
+
+make -C kernel O=$OUT/obj/kernel ARCH=x86 menuconfig
 
 popd
 

@@ -7,7 +7,7 @@ RUN apt-get install -qy repo ccache yasm \
     lzop pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev imagemagick util-linux bsdmainutils gettext\
     wpasupplicant python-networkx tmux
 RUN apt-get install -qy openjdk-8-jdk
-RUN apt-get install -qy python-mako genisoimage syslinux syslinux-utils dosfstools
+RUN apt-get install -qy python-mako genisoimage syslinux syslinux-utils dosfstools lunzip kmod
 
 RUN useradd -d /home/mach/code/android-x86 -s /bin/bash -M -u 1000 -U mach
 ENV USER=mach

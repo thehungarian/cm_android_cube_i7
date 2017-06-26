@@ -38,3 +38,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.radio.noril=1 \
     ro.dalvik.vm.isa.arm64=x86_64 \
 	ro.enable.native.bridge.exec64=1
+
+GAPPS_VARIANT := stock
+GAPPS_EXCLUDED_PACKAGES := DialerFramework \
+	DialerGoogle \
+	PixelIcons \
+	PixelLauncher \
+	FaceDetect \
+	FaceUnlock \
+	FaceLock \
+	GoogleCamera
+WITH_DEXPREOPT := true
+
+$(call inherit-product, vendor/google/build/opengapps-packages.mk)
