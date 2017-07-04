@@ -22,7 +22,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, device/generic/x86_64/android_x86_64.mk)
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
+PRODUCT_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
 # Overrides
 PRODUCT_NAME := android_cubei7
@@ -37,10 +37,19 @@ PRODUCT_MANUFACTURER := Cube
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.radio.noril=1 \
     ro.dalvik.vm.isa.arm64=x86_64 \
-	ro.enable.native.bridge.exec64=1
+	ro.enable.native.bridge.exec64=1 \
+	poweroff.doubleclick=0 \
+    hal.sensors.iio.accel=1 \
+	hal.sensors.iio.accel.matrix=1,0,0,0,-1,0,0,0,-1 \
+    ro.com.android.dateformat=dd-MM-yyyy \
+	ro.wifi.channels=13 \
+	ro.product.locale.region=GB \
+	ro.ignore_atkbd=1 \
+	net.bt.name=Cubei7
 
 GAPPS_VARIANT := stock
 GAPPS_EXCLUDED_PACKAGES := DialerFramework \
+	Messenger \
 	DialerGoogle \
 	PixelIcons \
 	PixelLauncher \
@@ -48,6 +57,8 @@ GAPPS_EXCLUDED_PACKAGES := DialerFramework \
 	FaceUnlock \
 	FaceLock \
 	GoogleCamera
+
+# Pre-optimization https://source.android.com/devices/tech/dalvik/configure
 WITH_DEXPREOPT := true
 
 $(call inherit-product, vendor/google/build/opengapps-packages.mk)

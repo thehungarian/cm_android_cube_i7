@@ -1,7 +1,0 @@
-poweroff.doubleclick=0
-# ?
-ro.ignore_atkbd=1
-# Flip the axis of the aacelleromitter
-hal.sensors.iio.accel=1
-hal.sensors.iio.accel.matrix=1,0,0,0,-1,0,0,0,-1
-ro.com.android.dateformat=dd-MM-yyyy
